@@ -7,7 +7,8 @@ icon: fa-star
 image: assets/images/pic03.jpg
 profileimage: assets/images/speaker/hsshim.jpg
 hashtags: 
-  - 실시간검색
+  - 텍스트 검색
   - 자료구조
+  - 대규모 검색
 ---
 곧 공개합니다.
