@@ -289,7 +289,11 @@
 
 		&.centered {
 			display: block;
-			margin: 0 0 2em 0;
+			margin-bottom: 2em;
+			margin-left: auto;
+			margin-right: auto;
+			width: fit-content;
+			text-align: center;
 
 			img, video {
 				margin: 0 auto;
