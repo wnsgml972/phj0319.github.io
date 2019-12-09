@@ -5,4 +5,8 @@ layout: "page"
 icon: fa-gift
 order: 3
 ---
-### 곧 공개합니다.
+<span class="image center" style="max-width: 800px;">
+    <img src="{{ 'assets\images\event\eventMain.jpg' | relative_url }}"/>
+</span>
+
+## See you Cad Team Conference !
