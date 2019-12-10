@@ -1,0 +1,95 @@
+---
+title: Session
+icon: fa-th
+order: 3
+---
+{%- assign _posts = site.posts | sort: 'date' | reverse -%}
+
+<!-- Prev Arrows -->
+<div class="swiper-button-prev"></div>
+
+<!-- Contents -->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+        {%- for _post in _posts -%}
+                <div class="swiper-slide">
+                    <div class="session_item">
+                        <a href="{{- _post.url | absolute_url -}}">
+                            <div class="session_cnt_box">
+                                <dl class="session_cnt">
+                                    <!-- Session -->
+                                    <dd class="session_title">
+                                        {%- if _post.image != "" -%}
+                                            {{- _post.title -}}
+                                        {%- endif -%}
+                                    </dd>
+                                    <!-- Hash Tag-->
+                                    <dd class="session_tag">
+                                        <ul class="session_tag_list">
+                                            {%- for _hashtag in _post.hashtags -%}
+                                                <li class="session_tag_item">
+                                                    #{{- _hashtag -}}
+                                                </li>
+                                            {%- endfor -%}
+                                        </ul>
+                                    </dd>
+                                    <!-- Speaker -->
+                                    <dd>
+                                        <ul class="session_list_wrap">
+                                            <li class="session_list">
+                                                    <div class="session_info_imgarea">
+                                                    {%- if _post.profileimage != "" -%}
+                                                        <img src="{{- _post.profileimage -}}">
+                                                    {%- endif -%}
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <span class="session_speaker">
+                                            {%- if _post.author != "" -%}
+                                                {{- _post.author -}}
+                                            {%- endif -%}
+                                        </span>
+                                    </dd>
+                                </dl>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+        {%- endfor -%}
+    </div>
+</div>
+
+<!-- Next Arrows -->
+<div class="swiper-button-next"></div>
+
+<!-- Add Pagination -->
+<div class="swiper-pagination"></div>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        centeredSlides: true,
+        spaceBetween: 30,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: true,
+        // Responsive breakpoints
+        breakpoints: {
+            //mobile, normal, narrower, narrow
+            1620: {
+            slidesPerView: 1
+            },
+            //wide
+            1880: {
+            slidesPerView: 2
+            },
+            //mode than 1880....?
+            30000: {
+            slidesPerView: 2
+            }
+        }
+    });
+</script>
