@@ -1,0 +1,185 @@
+---
+title: 마우스로 코딩해보자
+subtitle: 키보드는 거들뿐
+author: 박홍진 담당
+layout: post
+icon: fa-mouse-pointer
+image: assets/images/post/phj0319/title.png
+profileimage: assets/images/speaker/phj0319.jpg
+hashtags: 
+  - 블록코딩
+  - 키보드는 거들뿐
+  - 탈코드화
+  - Low Code
+---
+
+<p>
+   "간단한 고객 편의 기능은은 개발자가 아니어도 개발할 수 있지 않을까?” 하는 질문으로 부터 시작되었다. 비개발자여도 마우스만으로 개발할 수 있는 간편한 블록코딩 툴에 대해 알아보자.
+</p>
+
+<h3>고객이 직접 개발한다면?</h3>
+<p>
+  개발자로서 고객들에게 효용을 전달하기 위해 난이도 높은 기능을 개발하기도 하지만, 때로는 아주 간단한 기능을 개발하기도 한다. 물론 그 기능 개발은 부담 없이 빠른 시간 안에 개발할 수 있다. 하지만 간단한 요청이 오랜 기간 동안 지속된다면 가랑비에 옷 젖듯 대응 시간은 더 이상 무시할 수 없는 것이 된다.
+</p>
+
+<p>
+  <span class="image centered"style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;"><img src="{{ 'assets/images/post/phj0319/ad_cafe.png' | relative_url }}" alt="" />( 제품 기능 제안 창구, 고객이 많아지면 감당할 수 있을까? )</span>
+</p>
+
+<h3>벤치마킹 : App Inventor</h3>
+<p>
+  개발을 모르는 사람도 직관적으로 이해할 수 있게 잘 만들어져 있는 툴이다. 이번 기술 과제로 벤치마킹한 것은 바로 이것이었다.
+  <span class="image centered"style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+    <img src="{{ 'assets/images/post/phj0319/appinventor_logo.png' | relative_url }}" alt="" />
+    <a href="https://appinventor.mit.edu/">https://appinventor.mit.edu/</a>
+  </span>
+</p>
+
+<h5 onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(0)">
+  <U>App Invetor 맛보기 (펼치기 / 접기)</U>
+</h5><p style="DISPLAY: none">
+  <span class="image centered"><img src="{{ 'assets/images/post/phj0319/app_inventor_2.png' | relative_url }}" alt="" /></span>
+  위 그림은 Mobile App 의 화면을 배치하는 방법이다. 좌측의 툴바에 버튼, 이미지, 체크박스 등 다양한 UI를 마우스로 끌어와서 사용할 수 있다. 좌측 Pallete에서 Image를 클릭하여 고양이 사진을 화면에 배치한 모습이다.
+  <span class="image centered"><img src="{{ 'assets/images/post/phj0319/app_inventor_4.png' | relative_url }}" alt="" /></span>
+  화면배치가 끝나고 나면 관련된 기능을 추가할 수 있다. 아주 간단한 예제로 고양이 사진을 터치하면 야옹 소리가 들리는 기능을 개발한 것이다. 개발을 모르는 사람도 블록 안의 영어만 읽으면 어떤 기능인지 알아챌 수 있을 것이다.
+</p>
+
+<br>
+
+<h3>CAD 기능을 Block으로 만들면?</h3>
+<p>
+  App Inventor의 사용 경험을 되돌아 보다가 문득, 우리의 CAD 제품에 동일한 컨셉을 적용하면 어떨까 하는 의문이 생겼다. 그러면 개발을 모르는 사용자들도 간단한 CAD 기능을 직접 만들어 쓸 수 있을 것이라 생각했다.
+  <br>처음 프로토타입으로 만들어 보기로 한 대상 언어는 AutoLISP 이었다. CAD 제품에서는 AutoLISP 이라는 언어를 사용자가 직접 활용하여 다양한 명령 기능을 추가할 수 있는 기반이 구현되어 있었고, 이를 만들어 보기로 했다.
+</p>
+
+<h5>화면구성</h5>
+<p>
+  <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+    <img src="{{ 'assets/images/post/phj0319/layout.png' | relative_url }}" alt="" />
+    CAD LISP 생성을 위한 화면 구성
+  </span>
+  ① : 툴박스, 명령 생성을 위한 다양한 블록 들이 있음.
+  <br>② : 블록들을 배치하는 곳
+  <br>③ : 블록을 저장 / 블록을 불러오기 / LISP 코드로 저장하기
+  <br>④ : LISP 코드를 보여주는 곳
+
+  <h5 onclick="this.nextSibling.style.display=(this.nextSibling.style.display=='none')?'block':'none';" href="javascript:void(0)">
+    <U>명령 만드는 방법 (펼치기 / 접기)</U>
+  </h5><p style="DISPLAY: none">
+    두가지의 명령이 생성 가능하다. 단순히 이미 존재하는 명령을 활용할 수도 있고, 직접 명령을 만들어 볼 수 있다.
+    <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+      <img src="{{ 'assets/images/post/phj0319/command.png' | relative_url }}" alt="" />
+      Command Blcok Group
+    </span>
+
+    명령을 실행할 때, 사용자의 입력을 유도하기 위한 블록들이다. 정수 / 실수 / 텍스트 / 점 / 객체를 입력받을 수 있다. 명령창에 나타날 문구도 Prompt 항목을 통해 표현할 수 있다.
+    <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+      <img src="{{ 'assets/images/post/phj0319/userinput.png' | relative_url }}" alt="" />
+      User Input Blcok Group
+    </span>
+    
+    변수와 값이 있다. x=1 에서 x는 변수이고 1은 값인 것처럼, 블록에도 변수와 값을 만들어 두었다.
+    <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+      <img src="{{ 'assets/images/post/phj0319/val_var.png' | relative_url }}" alt="" />
+      Variable & Values Blcok Group
+    </span>
+
+    객체 생성을 위한 블록들이다. 각 객체 종료에 맞게 필요한 블록들을 연결하면 객체를 만들어내는 명령을 만들 수 있다.
+    <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+      <img src="{{ 'assets/images/post/phj0319/entity.png' | relative_url }}" alt="" />
+      Entity Blcok Group
+    </span>
+
+    아주 간단한 예제이다. 명령의 이름은 "MyCommand"이다. 사용자로부터 점하나를 입력받는다. 그때 command 창에 "select end point" 라는 문구가 표시된다. 사용자가 점을 클릭하면 원점으로부터 그점까지 이어지는 선객체가 하나 만들어진다.
+    <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+      <img src="{{ 'assets/images/post/phj0319/tutorial.png' | relative_url }}" alt="" />
+      Simple Tutorial
+    </span>
+
+    <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+      <img src="{{ 'assets/images/post/phj0319/tutorial.gif' | relative_url }}" alt="" />
+      실제 CAD에서 동작하는 모습
+    </span>
+</p>
+
+<br>
+
+<h3>그래서 이걸 어디에 쓰지?</h3>
+<p>
+  가장 고민이 되는 부분이다. 어쩌면 여러분들에게 다양한 아이디어들이 나올 수 있을 것 같다. 가능성은 무궁무진하겠지만, 직접 개발했던 CAD 기능 Block 개발 UI 에 대한 활용에 대해 생각했던 방향은 다음 두 가지다.
+</p>  
+
+<h5>1.	기술 지원 활용</h5>
+<p>
+  아키디자인 사용자들에게 실시간으로 기술 지원을 할 수 있는 오픈채팅 방이다.
+  <span class="image centered"><img src="{{ 'assets/images/post/phj0319/open_kakao.png' | relative_url }}" alt="" /></span>
+  간혹 이러이러한 기능이 되나요 해서 간단하게 LISP으로 만들어서 제공하기도 한다. 하지만 Block UI를 활용하여, 비개발자 분들도 직접 대응할 수 있지 않을까?
+</p>
+
+<h5>2.	고객에게 직접 전달</h5>
+<p>
+  실제 CAD Power User들은 AutoLISP을 활용하여 직접 필요한 기능을 만들기도 한다. 그런데 사용자들에게 Block UI를 제공하면 조금 더 직접 기능을 만들기 쉽지 않을까?
+</p>
+
+<h3>탈코드화? Low Code?</h3>
+<p>
+  개발을 잘하는 것이 반드시 좋은 제품으로 이어지는 것은 아니라고 생각한다. 아이디어가 중요하고, 그것을 실체화 하는 것이 개발 능력일 뿐이다. 탈코드화, Low Code는 아이디어는 있지만 실체화할 개발 능력이 없는 사람들을 위한 기술 트렌드이다. 네이버 포스트에 Low-Code 와 관련된 좋은 글이 있어 가져와 봤다.
+  <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+    <img src="{{ 'assets/images/post/phj0319/low_code.png' | relative_url }}" alt="" />
+    <a href="https://m.post.naver.com/viewer/postView.nhn?volumeNo=21035076&memberNo=38254758&searchKeyword=%EB%B9%8C%EB%8D%94&searchRank=92">Low-Code 관련 네이버</a>
+  </span>
+  지금은 단순히 개발은 모르지만 CAD에 대한 이해도가 높은 사람을 위한 Tool을 만들었지만, 이 기술은 다양한 분야에서 요구될 것이라 생각한다.
+</p>
+
+<h3>개발 관련된 이야기들..</h3>
+<p>
+  본 과제를 진행하면서 고민했던 개발 관련 이야기를 조금 해볼까 한다.
+</p>
+
+<h3>블록 코딩의 생태계 = Blockly</h3>
+<p>
+  <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+    <img src="{{ 'assets/images/post/phj0319/logo.png' | relative_url }}" alt="" />
+    <a href="https://developers.google.com/blockly">https://developers.google.com/blockly</a>
+  </span>
+  처음 이 기능을 개발하기 위해 UI 개발을 어떻게 할지 고민이 되었다. MFC가 익숙한 개발자이지만, 저 UI의 마그네틱 기능이며, 동적인 UI 변경이며, 기타 등등을 개발하기에는 몹시 막막했다.
+  하지만 개발자라면 자고로 남이 만들어 놓은 좋은 코드를 잘 써야 하는 법! 여기저기 Block UI와 관련된 검색을 해보기 시작했다.
+  각설하고, 결론은 Google Blockly 였다. Block UI를 활용한 다양한 웹 페이지 및 패키지 소프트웨어를 찾아봤지만, 결국은 모드 Blockly 기반이었다. 본인도 고민 없이 Blockly를 선택하였다.
+  <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+    <img src="{{ 'assets/images/post/phj0319/blockly_base.png' | relative_url }}" alt="" />
+    찾아본 대부분의 SW들은 모두 Blockly Library 기반이었다.
+  </span>
+</p>
+
+<h3>Google 이 제시하는 Guide</h3>
+<p>
+  처음 Blockly를 활용해 보면서 여러가지 시행착오를 겪었다. 그런데 알고보니 이들이 저지르기 쉬운 실수들에 대한 Guide를 제시하고 있었다.
+  <span class="image centered"><img src="{{ 'assets/images/post/phj0319/blockly_style_guide.png' | relative_url }}" alt="" /></span>
+  다 읽어보기를 권장하지만, 이 중 가장 중요하다고 생각된 것은 다음이다.
+  <span class="image centered"><img src="{{ 'assets/images/post/phj0319/blockly_style_guide_detail.png' | relative_url }}" alt="" /></span>
+  <br>“Blockly는 문자 기반의 개발 언어를 단순 대체하기 위해 만들어지지 않았다.”
+  <br>“맹목적으로 API를 블록으로 바꾸지 마라”
+  <br>Blockly는 개발 언어를 모르는 사람도 활용할 수 있어야 진짜 가치가 있는 것이다. 세부적인 문법사항은 무시하고, 큰 개념단위의 블록을 만들어야 한다.
+</p>
+
+<h3>중간 언어와 Parser</h3>
+<p>
+  대중적인 개발 언어들(C++, Java, Html 등)은 만들기만 하면 바로 활용할 수 있다. 하지만, 대중적인 언어를 사용하지 않는다면 중간 언어에 대한 규칙이 필요하고, 그 규칙에 맞는 Parser가 필요하다. 실제로 CAD 개발팀 모 팀원과 함께, 잠시 우리들만의 스크립트 형태의 중간언어를 만들어서 Block 코딩을 적용하고, 이를 팀원들이 사용할 수 있게 할까 논의한 적이 있었다. 그러나 이 개발에 큰 필요성을 느끼지 못해 실제로 개발하지는 않았지만, 이론적으로는 가능한 이야기였다.
+</p>
+
+<h3>라이선스 문제는 없나?</h3>
+<p>
+  Apache License 2.0을 따르는 Library 이므로 문제가 되지 않는다. 불안해서 여기저기 문의도 해봤다.
+  <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+    <img src="{{ 'assets/images/post/phj0319/apache_license.png' | relative_url }}" alt="" />
+    <a href="https://github.com/google/blockly/blob/master/LICENSE">https://github.com/google/blockly/blob/master/LICENSE</a>
+  </span>
+  <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+    <img src="{{ 'assets/images/post/phj0319/license_query_1.png' | relative_url }}" alt="" />
+    <a href="https://www.olis.or.kr/consulting/projectHistoryDetail.do?bbsId=2&bbsNum=602">오픈소스SW 라이선스 종합종보시스템</a>
+  </sapn>
+  <span class="image centered" style="box-shadow: 0 0.05em 0.15em 0 rgba(0,0,0,0.05); background: #fff;">
+    <img src="{{ 'assets/images/post/phj0319/license_query_2.png' | relative_url }}" alt="" />
+    <a href="https://groups.google.com/forum/#!searchin/blockly/library$20in$20my$20company%7Csort:date/blockly/MA-CZCatYmA/VASpI7VkBgAJ">Blockly Google Groups</a>
+  </span>
+</p>
