@@ -30,7 +30,8 @@
             <span class="{{ _class }} {{ _icon }}">{{- _title -}}</span>
           </a></li>
         {%- else -%}
-          <li><a href="{{- '/' | absolute_url -}}" id="broken-link"><span class="icon fa-unlink">[broken link]</span></a></li>
+          <li><a href="{{- '/' | absolute_url -}}" id="broken-link"><span class="icon fa-unlink">[broken link]</span>
+          </a></li>
         {%- endif -%}
       {%- endfor -%}
     {%- endunless -%}
@@ -48,7 +49,9 @@
         {%- else -%}
           {%- assign _class = 'icon' -%}
         {%- endif -%}
-        <li><a href="#{{- _slug -}}" id="{{- _slug -}}-link" class="scrolly"><span class="{{ _class }} {{ _icon }}">{{- _title -}}</span></a></li>
+        <li><a href="#{{- _slug -}}" id="{{- _slug -}}-link" class="scrolly">
+          <span class="{{ _class }} {{ _icon }}">&nbsp&nbsp&nbsp&nbsp&nbsp{{- _title -}}</span>
+        </a></li>
       {%- endfor -%}
     {%- endunless -%}
   </ul>
